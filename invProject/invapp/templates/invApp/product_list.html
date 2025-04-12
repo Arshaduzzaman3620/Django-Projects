@@ -1,0 +1,37 @@
+{% extends "invapp/layout.html" %}
+
+{% block title %} Product List{% endblock title %}
+
+{% block content %}
+
+<h1 class="text-center">Products</h1>
+<table class="table table-bordered table-striped text-center">
+  <thead class="thead-dark">
+    <tr>
+      <th>Product Id</th>
+      <th> Name</th>
+      <th> Price</th>    
+      <th>SKU</th>
+      <th>Supplier</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+      <tr>
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.supplier }}</td>
+        <td>
+          <a href="{% url 'product_update' product.Product_id %}" class="btn btn-warning" >Update</a>
+          <a href="{% url 'product_delete' product.Product_id %}" class="btn btn-danger">Delete</a>
+          
+          
+         
+        </td>
+      </tr>
+    {% endfor %}
+</table>
+{% endblock content %}
