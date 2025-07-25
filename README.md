@@ -1,2 +1,0 @@
-# Django-Projects
-Django Projects
